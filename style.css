@@ -340,6 +340,7 @@ section:target {
   .timeline-box::after {
     left: -12% !important;
   }
+  
 }
 
 .timeline-traveller {
