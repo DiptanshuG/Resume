@@ -11,25 +11,26 @@ body {
 /* horizontal list*/
 
 .horizontal-list {
-  list-style: none;
-  padding-left: 0px;
+
+  margin: auto;
+}
+.end{
+  width: 100%;
 }
 .horizontal-list li {
   display: inline-block;
-  margin: 0px 8px 8px 0px;
 }
 .horizontal-list li a {
-  color: white;
+  color: rgb(146, 63, 63);
   text-decoration: none;
-  transition: color 0.5s;
+  transition: color 0.2s;
 }
 .horizontal-list li a:hover {
-  color: rgb(238, 79, 79);
+  color: rgb(230, 217, 217);
   border-bottom: olivedrab;
 }
 .text-center {
   text-align: center;
-  font-size: xx-large;
   font-weight: bold;
 }
 /* name and social icon */
@@ -340,7 +341,6 @@ section:target {
   .timeline-box::after {
     left: -12% !important;
   }
-  
 }
 
 .timeline-traveller {
@@ -435,11 +435,22 @@ section:target {
 #contact-container {
   display: flex;
   justify-content: center;
+  flex-direction: row-reverse;
+}
+
+
+/* // Medium devices (tablets, 768px and up) */
+
+@media (max-width: 768px) {
+  #contact-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
 }
 
 #my-details-container {
-  width: 35%;
-  margin-left: 120%;
+  width: 100%;
 }
 #my-detail-container h3 {
   color: #fff;
