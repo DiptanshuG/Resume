@@ -11,10 +11,19 @@ body {
 /* horizontal list*/
 
 .horizontal-list {
-
   margin: auto;
 }
-.end{
+.nav-menu{
+  font-family: monospace;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  justify-content: space-around;
+  font-size: xx-large;
+  text-decoration: underline;
+}
+
+.end {
   width: 100%;
 }
 .horizontal-list li {
@@ -438,7 +447,6 @@ section:target {
   flex-direction: row-reverse;
 }
 
-
 /* // Medium devices (tablets, 768px and up) */
 
 @media (max-width: 768px) {
@@ -446,6 +454,9 @@ section:target {
     display: flex;
     justify-content: center;
     flex-direction: column;
+  }
+  .navstyle {
+    font-family: cursive;
   }
 }
 
@@ -527,4 +538,193 @@ textarea:focus button:focus {
 }
 p {
   font-size: xx-large;
+}
+
+* core styles */ .sm-link {
+  --uismLinkDisplay: blue;
+  --uismLinkTextColor: green;
+  --uismLinkTextColorHover: white;
+
+  display: var(--uismLinkDisplay);
+  color: var(--uismLinkTextColor);
+  position: relative;
+  overflow: hidden;
+}
+
+a.sm-link {
+  text-decoration: none;
+}
+
+.sm-link__label {
+  display: block;
+  font-size: xx-large;
+  color: #d9dcdd;
+}
+
+/* ANIMATION */
+
+.sm-link2::before {
+  top: 0;
+  transform: rotateY(90deg);
+  transition-duration: 0.3s;
+}
+
+.sm-link2 .sm-link__label {
+  transform: rotateY(0);
+  transition-delay: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.sm-link2:hover::before {
+  transform: rotateY(0deg);
+  transition-delay: 0.3s;
+}
+
+.sm-link2:hover .sm-link__label {
+  transform: rotateY(90deg);
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+}
+/* sm-link_text */
+
+.sm-link_text::before {
+  content: attr(data-sm-link-text);
+  color: rgb(255, 255, 255);
+  position: absolute;
+  font-size: xx-large;
+  top: 40px;
+}
+
+.sm-link_text::before,
+.sm-link_text .sm-link__label {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.86, 0.6, 0.08, 1.01);
+  transition-duration: 0.3s;
+}
+
+.sm-link_text:hover::before,
+.sm-link_text:hover .sm-link__label {
+  transition-duration: 0.4s;
+}
+
+/* sm-link_padding-all */
+
+.sm-link_padding-all {
+  --uismLinkLineColor: var(orange, rgb(18, 124, 62));
+  --uismLinkPadding: var(--smLinkPadding, 5px);
+
+  padding: var(--uismLinkPadding);
+}
+
+.sm-link_padding-all::before,
+.sm-link_padding-all::after {
+  width: 100%;
+  height: var(--uismLinkLineWeight);
+  left: 0;
+}
+
+.sm-link_padding-all::before {
+  top: 0;
+}
+
+.sm-link_padding-all::after {
+  bottom: 0;
+}
+
+.sm-link_padding-all .sm-link__label::before,
+.sm-link_padding-all .sm-link__label::after {
+  width: var(--uismLinkLineWeight);
+  height: 100%;
+  top: 0;
+}
+
+.sm-link_padding-all .sm-link__label::before {
+  left: 0;
+}
+
+.sm-link_padding-all .sm-link__label::after {
+  right: 0;
+}
+
+.sm-link_padding-all::before,
+.sm-link_padding-all::after,
+.sm-link_padding-all .sm-link__label::before,
+.sm-link_padding-all .sm-link__label::after {
+  content: "";
+  background-color: var(--uismLinkLineColor);
+  position: absolute;
+  opacity: 0;
+
+  will-change: transform, opacity;
+  transition-property: transform, opacity;
+}
+
+.sm-link_padding-all:hover::before,
+.sm-link_padding-all:hover::after,
+.sm-link_padding-all:hover .sm-link__label::before,
+.sm-link_padding-all:hover .sm-link__label::after {
+  opacity: 1;
+}
+
+/* sm-link_padding-bottom */
+
+.sm-link_padding-bottom {
+  --uismLinkLineWeight: var(--smLinkLineWeight, 2px);
+  --uismLinkLineColor: var(--smLinkLineColor, rgb(219, 33, 33));
+
+  padding-bottom: var(--uismLinkLineWeight);
+  position: relative;
+}
+
+.sm-link_padding-bottom::after {
+  content: "";
+  width: 100%;
+  height: var(--uismLinkLineWeight);
+  background-color: var(--uismLinkLineColor);
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+/* sm-link_bg */
+
+.sm-link_bg {
+  --uismLinkLineColor: var(--smLinkLineColor, rgb(218, 36, 36));
+  --uismLinkTextColorHover: var(--smLinkTextColorHover, rgb(200, 218, 39));
+  --uismLinkPadding: var(--smLinkPadding, 5px);
+
+  padding: var(--uismLinkPadding);
+  transition: color 0.3s ease-out;
+}
+
+.sm-link_bg::before,
+.sm-link_bg::after {
+  content: "";
+  background-color: var(--uismLinkLineColor);
+  opacity: 0;
+  position: absolute;
+
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out 0.03s;
+}
+
+.sm-link_bg .sm-link__label {
+  position: relative;
+  z-index: 2;
+}
+
+.sm-link_bg:hover::before,
+.sm-link_bg:hover::after {
+  opacity: 1;
+  transition-duration: 0.35s, 0.35s;
+  transition-delay: 0s, 0s;
+}
+
+.sm-link_bg:hover {
+  color: rgb(178, 218, 86);
+}
+.heading2 {
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
