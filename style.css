@@ -151,6 +151,9 @@ section:target {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  border: 1px solid white;
+  background-color:#c87575;
+  border-radius: 50%;
 }
 
 .skill-progress {
@@ -163,6 +166,7 @@ section:target {
   overflow: hidden;
   margin-bottom: 1rem;
   transition: transform 240ms ease-out;
+  cursor: pointer;
 }
 .skill-progress:hover {
   transform: scale(1.1);
@@ -560,6 +564,7 @@ a.sm-link {
   font-size: xx-large;
   color: #d9dcdd;
 }
+
 
 /* ANIMATION */
 
